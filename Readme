@@ -45,8 +45,9 @@ sticky-note-extension/
 ├── manifest.json
 ├── script.js
 ├── styles.css
-├── icon.png (optional)
-└── README.md
+├── icons/
+├── background.js
+└── README
 ```
 
 ---
