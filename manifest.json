@@ -1,0 +1,34 @@
+{
+    "manifest_version": 3,
+    "name": "Floating Notepad",
+    "version": "1.0",
+    "description": "A draggable, resizable floating note that saves and copies your text.",
+    "permissions": [
+      "scripting",
+      "activeTab"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_icon": {
+        "16": "icons/notepad-16.png",
+        "48": "icons/notepad-48.png",
+        "128": "icons/notepad-128.png"
+      }
+    },
+    "icons": {
+      "16": "icons/notepad-16.png",
+      "48": "icons/notepad-48.png",
+      "128": "icons/notepad-128.png"
+    },
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "styles.css"
+        ],
+        "matches": ["<all_urls>"]
+      }
+    ]
+  }
+  

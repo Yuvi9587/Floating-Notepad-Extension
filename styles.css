@@ -1,0 +1,122 @@
+.note-container {
+    width: 400px;
+    height: 300px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgb(230, 229, 229);
+    position: fixed;
+    top: 100px;
+    right: 100px;
+    z-index: 2147483647;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+  
+  .note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .note-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .button-container button {
+    background-color: #ffd54f;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 18px;
+    color: #3e2723;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .button-container button:hover {
+    background-color: #ffeb3b;
+  }
+  
+  .note-content {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #3e2723;
+    flex-grow: 1;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    outline: none;
+    user-select: text;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0 5px 0 5px;
+    height: calc(100% - 85px);
+    resize: none;
+    cursor: text;
+  }
+  
+  .note-content:empty:before {
+    content: "Take a Note Here....";
+    color: #999;
+    text-align: left;
+    padding-left: 5px;
+    padding-top: 5px;
+    display: block;
+  }
+  
+  .resize-handle {
+    width: 20px;
+    height: 20px;
+    background-color: #ffd54f;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    cursor: se-resize;
+  }
+  
+  .drag-area {
+    cursor: grab;
+    width: 6px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+  }
+  
+  .drag-area:active {
+    cursor: grabbing;
+  }
+  
+  #eyeButton {
+    background-color: #ffd54f;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 18px;
+    color: #3e2723;
+    cursor: grab;
+    position: fixed;
+    top: 100px;
+    left: 500px;
+    z-index: 9999;
+  }
+  
+  #eyeButton:hover {
+    background-color: #ffeb3b;
+  }
+  
