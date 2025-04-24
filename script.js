@@ -35,17 +35,17 @@
     { backgroundColor: '#c8e6c9', borderColor: '#81c784' },
     { backgroundColor: '#ffccbc', borderColor: '#ff8a65' },
     { backgroundColor: '#e1bee7', borderColor: '#ce93d8' },
-    { backgroundColor: '#f5f5dc', borderColor: '#d2b48c' }, // Beige and Tan
-{ backgroundColor: '#e0f2f1', borderColor: '#4db6ac' }, // Mint and Teal
-{ backgroundColor: '#f9fbe7', borderColor: '#c0ca33' }, // Pale Lime and Olive
-{ backgroundColor: '#ffe0b2', borderColor: '#ffb74d' }, // Light Orange and Bright Orange
-{ backgroundColor: '#d1c4e9', borderColor: '#9575cd' }, // Lavender and Purple
-{ backgroundColor: '#f8bbd0', borderColor: '#ec407a' }, // Light Pink and Fuchsia
-{ backgroundColor: '#fafafa', borderColor: '#bdbdbd' }, // Light Gray and Gray
-{ backgroundColor: '#fff3e0', borderColor: '#ffb74d' }, // Soft Cream and Amber
-{ backgroundColor: '#eceff1', borderColor: '#90a4ae' }, // Cool Gray and Slate
-
+    { backgroundColor: '#f5f5dc', borderColor: '#d2b48c' },
+    { backgroundColor: '#e0f2f1', borderColor: '#4db6ac' },
+    { backgroundColor: '#f9fbe7', borderColor: '#c0ca33' },
+    { backgroundColor: '#ffe0b2', borderColor: '#ffb74d' },
+    { backgroundColor: '#d1c4e9', borderColor: '#9575cd' },
+    { backgroundColor: '#f8bbd0', borderColor: '#ec407a' },
+    { backgroundColor: '#fafafa', borderColor: '#bdbdbd' },
+    { backgroundColor: '#fff3e0', borderColor: '#ffb74d' },
+    { backgroundColor: '#eceff1', borderColor: '#90a4ae' },
   ];
+
   const note = document.getElementById('note');
   const noteContent = document.getElementById('note-content');
   const dragArea = document.querySelector('.drag-area');
@@ -55,6 +55,8 @@
   const saveButton = document.getElementById('saveButton');
   const eyeButton = document.getElementById('eyeButton');
 
+  const pageKey = window.location.hostname + window.location.pathname;
+
   function applyRandomTheme() {
     const randomTheme = themes[Math.floor(Math.random() * themes.length)];
     note.style.backgroundColor = randomTheme.backgroundColor;
@@ -62,6 +64,14 @@
   }
 
   applyRandomTheme();
+
+  // Load saved content
+  noteContent.innerText = localStorage.getItem(`note-${pageKey}`) || '';
+
+  // Auto-save on input
+  noteContent.addEventListener('input', () => {
+    localStorage.setItem(`note-${pageKey}`, noteContent.innerText);
+  });
 
   // Drag functionality
   let isDragging = false, offsetX, offsetY;
@@ -118,6 +128,7 @@
   // Clear content and reset style
   newNoteButton.addEventListener('click', () => {
     noteContent.textContent = '';
+    localStorage.removeItem(`note-${pageKey}`);
     note.style.width = '400px';
     note.style.height = '300px';
     note.style.top = '20px';
@@ -126,19 +137,18 @@
   });
 
   // Save note using a simple anchor link - no permissions required
-saveButton.addEventListener('click', () => {
-  const content = noteContent.innerText || '';
-  const blob = new Blob([content], { type: 'text/plain' });
-  const url = URL.createObjectURL(blob);
+  saveButton.addEventListener('click', () => {
+    const content = noteContent.innerText || '';
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
 
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'sticky-note.txt'; // Suggests a file name
-  a.click();
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'sticky-note.txt';
+    a.click();
 
-  setTimeout(() => URL.revokeObjectURL(url), 100); // Clean up
-});
-
+    setTimeout(() => URL.revokeObjectURL(url), 100);
+  });
 
   // Eye button toggle visibility and drag
   let isEyeButtonDragging = false, mouseMoveDistance = 0, eyeButtonOffsetX, eyeButtonOffsetY, isNoteVisible = true;
