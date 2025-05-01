@@ -1,44 +1,46 @@
-## 🗒 Sticky Note Extension
+---
 
-A draggable, resizable, and themeable sticky note extension for quick note-taking right in your browser! Comes with copy, save, and visibility toggle features.
+# Sticky Note Extension
+
+A lightweight, draggable, and resizable sticky note tool for Chrome that lets you take quick notes right inside your browser. Includes features like saving, copying, and toggling visibility.
 
 ---
 
-### 📦 Features
+## Features
 
-- ✍️ Editable and scrollable notes
-- 🎨 Random color themes for a fresh feel
-- 📤 Save notes as `.txt` files
-- 📋 Copy note content to clipboard
-- 👁️ Toggle note visibility
-- 📐 Resizable and draggable UI
-- ➕ Create new notes instantly
-- 📦 Persistent filename storage (Chrome API)
+- Editable, scrollable note interface  
+- Randomized color themes  
+- Save notes as `.txt` files  
+- Copy note contents to clipboard  
+- Toggle visibility with a floating icon  
+- Fully resizable and draggable  
+- Create additional notes instantly  
+- Stores your preferred filename using Chrome's storage API  
 
 ---
 
-### 🛠 Installation (Developer Mode)
+## Installation (Developer Mode)
 
-1. **Download or clone this repository**
+1. **Clone or download the repository**
    ```bash
    git clone https://github.com/yourusername/sticky-note-extension.git
    ```
 
-2. **Go to Chrome Extensions page**
-   - Visit `chrome://extensions/`
-   - Enable **Developer mode** (top-right switch)
+2. **Open the Chrome Extensions page**
+   - Go to `chrome://extensions/`
+   - Enable **Developer mode** using the toggle in the top-right corner
 
 3. **Load the unpacked extension**
-   - Click **Load unpacked**
-   - Select the folder containing `manifest.json`
+   - Click on **Load unpacked**
+   - Select the folder containing the `manifest.json` file
 
-4. **Use it**
-   - The sticky note icon or UI will appear on the page.
-   - Drag the eye icon to reposition and toggle visibility.
+4. **Start using it**
+   - The sticky note interface will appear on the page
+   - Use the draggable eye icon to toggle visibility or reposition
 
 ---
 
-### 🧩 Folder Structure
+## Folder Structure
 
 ```
 sticky-note-extension/
@@ -47,14 +49,15 @@ sticky-note-extension/
 ├── styles.css
 ├── icons/
 ├── background.js
-└── README
+└── README.md
 ```
 
 ---
 
-### 📋 Permissions
+## Required Permissions
 
-Make sure to explain these in your `manifest.json`:
+These permissions must be declared in `manifest.json`:
+
 ```json
 "permissions": [
   "storage",
@@ -62,47 +65,46 @@ Make sure to explain these in your `manifest.json`:
 ]
 ```
 
-- **storage**: For storing the default filename
-- **downloads**: For downloading note content as a text file
+- **storage**: Stores the user's default filename  
+- **downloads**: Enables downloading note content as text files  
 
 ---
 
-### 💾 How Saving Works
+## How Saving Works
 
-When the save button is clicked:
-- The note is saved as a `.txt` file.
-- The first download prompts the user to choose a location (unless a name is already stored).
-- The chosen name is remembered for future saves (using Chrome's `storage.local` API).
-
----
-
-### 🧪 Testing & Development Tips
-
-- Make edits in `script.js` and reload the extension via `chrome://extensions/`.
-- Test resizing, dragging, saving, and visibility toggle.
-- Confirm clipboard access via the copy button.
+- Clicking the save button will download the note as a `.txt` file  
+- On first save, the user is prompted to choose a filename  
+- The chosen name is stored locally for future use using `chrome.storage.local`
 
 ---
 
-### 📎 Known Issues
+## Development & Testing
 
-- Multiple notes are not currently supported.
-- Note content does not persist after refresh (unless manually saved).
-- Firefox and other browsers may require adaptation.
-
----
-
-### 🙌 Contributing
-
-1. Fork the repository
-2. Create a new branch
-3. Make your changes
-4. Submit a pull request with a clear description
+- Modify `script.js` and reload the extension from `chrome://extensions/`
+- Test dragging, resizing, saving, copying, and toggling
+- Ensure clipboard access functions properly
 
 ---
 
-### 📃 License
+## Known Issues
 
-MIT License — feel free to modify and share!
+- Multiple notes are not yet supported  
+- Notes do not persist after page refresh  
+- Compatibility with Firefox or other browsers is untested  
+
+---
+
+## Contributing
+
+1. Fork the repository  
+2. Create a new feature branch  
+3. Commit your changes  
+4. Open a pull request with a clear description  
+
+---
+
+## License
+
+This project is licensed under the MIT License. You’re free to use, modify, and distribute it.
 
 ---
