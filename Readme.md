@@ -84,15 +84,5 @@ In `manifest.json`:
 ---
 
 ## Limitations
-
-- Notes are not saved after a page reload  
 - Only one note can be active at a time  
-- Firefox and other browsers are not supported out of the box  
-
----
-
-## License
-
-This project is licensed under the MIT License.
-
 ---
